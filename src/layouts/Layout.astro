@@ -1,0 +1,117 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <!-- Background Logo SVG -->
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="735"
+            height="707"
+            viewBox="0 0 235 207"
+            fill="none"
+            class="background-logo"
+            aria-hidden="true"
+        >
+            <g>
+                <path
+                    class="base-path"
+                    d="M138.266 57.3297L39.3216 38.7684C33.8196 37.7361 28.6259 44.3023 31.1578 49.0936L76.583 135.067C80.5739 142.621 87.6013 147.809 96.2307 149.572L194.443 169.643C199.914 170.762 205.191 164.258 202.738 159.416L158.645 72.3741C154.623 64.4335 147.293 59.0223 138.267 57.3289"
+                />
+                <path
+                    class="base-path"
+                    d="M76.5836 76.9724V180.814C76.5836 185.753 80.8866 189.135 84.8548 187.315L185.808 141.977C186.934 141.461 187.9 140.565 188.58 139.406C189.26 138.247 189.624 136.878 189.624 135.477V31.6344C189.624 26.6952 185.32 23.3142 181.352 25.1338L80.3986 70.4707C79.2728 70.9874 78.3071 71.8835 77.6267 73.0428C76.9463 74.2021 76.5826 75.5711 76.5826 76.9724"
+                />
+                <path
+                    class="base-path"
+                    d="M191.117 115.013L161.157 131.75L158.115 133.451L94.8692 168.512C90.8603 170.75 85.743 167.37 85.743 162.217V64.752C85.743 62.8875 86.5696 61.2779 87.678 60.0655C88.1321 59.5427 88.6471 59.096 89.2081 58.7383C90.7194 57.6889 92.8756 57.4088 94.7084 58.2481L190.613 102.213C195.489 104.45 195.872 112.354 191.117 115.012"
+                />
+            </g>
+        </svg>
+        <div class="content-wrapper">
+            <slot />
+        </div>
+    </body>
+</html>
+<style is:global>
+    :root {
+        --accent: 123, 31, 237;         /* More vibrant purple */
+        --accent-light: 155, 131, 255;  /* Lighter purple */
+        --accent-dark: 61, 20, 171;     /* Darker purple */
+        --accent-blue: 56, 189, 248;    /* Bright blue */
+        --accent-blue-dark: 28, 78, 216; /* Dark blue */
+        --accent-gradient: linear-gradient(
+            45deg,
+            rgb(var(--accent)),
+            rgb(var(--accent-blue)) 40%,
+            rgb(var(--accent-light)) 70%
+        );
+        --background-gradient: linear-gradient(
+            135deg,
+            #16092c 0%,
+            #1e0b5e 25%,
+            #0f1b48 60%,
+            #0a0e29 100%
+        );
+    }
+    html {
+        font-family: system-ui, sans-serif;
+        background: var(--background-gradient);
+    }
+    body {
+        min-height: 100vh;
+        margin: 0;
+        position: relative;
+        overflow-x: hidden;
+    }
+    code {
+        font-family:
+            Menlo,
+            Monaco,
+            Lucida Console,
+            Liberation Mono,
+            DejaVu Sans Mono,
+            Bitstream Vera Sans Mono,
+            Courier New,
+            monospace;
+    }
+    
+    /* Background logo styling */
+    .background-logo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        z-index: 0;
+        opacity: 0.05;
+        pointer-events: none;
+    }
+    
+    .base-path {
+        fill: rgb(var(--accent-light));
+        stroke: rgb(var(--accent-light));
+        stroke-width: 1;
+    }
+    
+    .content-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+</style>
